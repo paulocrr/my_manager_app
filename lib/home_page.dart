@@ -11,7 +11,47 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              showModalBottomSheet(
+                  context: context,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(40),
+                      topRight: Radius.circular(40),
+                    ),
+                  ),
+                  builder: (_) {
+                    return Form(
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          children: [
+                            TextFormField(
+                              decoration: InputDecoration(
+                                label: Text('Fecha'),
+                              ),
+                            ),
+                            TextFormField(
+                              decoration: InputDecoration(
+                                label: Text('Description'),
+                              ),
+                            ),
+                            TextFormField(
+                              decoration: InputDecoration(
+                                label: Text('Precio'),
+                              ),
+                            ),
+                            ElevatedButton.icon(
+                              onPressed: () {},
+                              icon: Icon(Icons.add),
+                              label: Text('Agregar'),
+                            )
+                          ],
+                        ),
+                      ),
+                    );
+                  });
+            },
             icon: const Icon(Icons.add),
           ),
         ],
