@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_manager_app/languages/my_text.dart';
+import 'package:my_manager_app/widgets/spent_item.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -15,10 +16,6 @@ class HomePage extends StatelessWidget {
           ),
         ],
         title: Text(MyText.homePageText.appBarTitle),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
       ),
       body: Column(
         children: [
@@ -41,37 +38,30 @@ class HomePage extends StatelessWidget {
                   Expanded(
                     child: ListView(
                       children: [
-                        const Text(
-                          'Texto 2',
-                          style: TextStyle(fontSize: 50),
+                        SpentItem(
+                          amount: 26.50,
+                          date: DateTime.now(),
+                          description: 'Prueba',
                         ),
-                        const Text(
-                          'Texto 2',
-                          style: TextStyle(fontSize: 50),
+                        SpentItem(
+                          amount: 26.50,
+                          date: DateTime.now(),
+                          description: 'Prueba',
                         ),
-                        const Text(
-                          'Texto 2',
-                          style: TextStyle(fontSize: 50),
+                        SpentItem(
+                          amount: 26.50,
+                          date: DateTime.now(),
+                          description: 'Prueba',
                         ),
-                        const Text(
-                          'Texto 2',
-                          style: TextStyle(fontSize: 50),
+                        SpentItem(
+                          amount: 26.50,
+                          date: DateTime.now(),
+                          description: 'Prueba',
                         ),
-                        const Text(
-                          'Texto 2',
-                          style: TextStyle(fontSize: 50),
-                        ),
-                        const Text(
-                          'Texto 2',
-                          style: TextStyle(fontSize: 50),
-                        ),
-                        const Text(
-                          'Texto 2',
-                          style: TextStyle(fontSize: 50),
-                        ),
-                        const Text(
-                          'Texto 2',
-                          style: TextStyle(fontSize: 50),
+                        SpentItem(
+                          amount: 26.50,
+                          date: DateTime.now(),
+                          description: 'Prueba',
                         ),
                       ],
                     ),
