@@ -6,6 +6,7 @@ class MyText {
 class _HomePageText {
   final appBarTitle = 'Mis Gastos';
   final listSpentTitle = 'Lista de Gastos';
+  final deleteSpentLabel = 'Borrar';
 }
 
 class _AddSpentFormText {}
