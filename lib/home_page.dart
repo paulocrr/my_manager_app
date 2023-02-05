@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:my_manager_app/languages/my_text.dart';
+import 'package:my_manager_app/models/spent.dart';
 import 'package:my_manager_app/widgets/add_spent_form.dart';
 import 'package:my_manager_app/widgets/spent_item.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  List<Spent> expenses = [];
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +32,15 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   builder: (_) {
-                    return AddSpentForm();
+                    return AddSpentForm(
+                      onSave: (spent) {
+                        setState(() {
+                          expenses.add(spent);
+                        });
+
+                        Navigator.pop(context);
+                      },
+                    );
                   });
             },
             icon: const Icon(Icons.add),
@@ -50,35 +67,16 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    child: ListView(
-                      children: [
-                        SpentItem(
-                          amount: 26.50,
-                          date: DateTime.now(),
-                          description: 'Prueba',
-                        ),
-                        SpentItem(
-                          amount: 26.50,
-                          date: DateTime.now(),
-                          description: 'Prueba',
-                        ),
-                        SpentItem(
-                          amount: 26.50,
-                          date: DateTime.now(),
-                          description: 'Prueba',
-                        ),
-                        SpentItem(
-                          amount: 26.50,
-                          date: DateTime.now(),
-                          description: 'Prueba',
-                        ),
-                        SpentItem(
-                          amount: 26.50,
-                          date: DateTime.now(),
-                          description: 'Prueba',
-                        ),
-                      ],
-                    ),
+                    child: expenses.isEmpty
+                        ? Lottie.asset(
+                            'assets/animations/empty.json',
+                            repeat: false,
+                          )
+                        : ListView(
+                            children: expenses.reversed
+                                .map((spent) => SpentItem(spent: spent))
+                                .toList(),
+                          ),
                   )
                 ],
               ),

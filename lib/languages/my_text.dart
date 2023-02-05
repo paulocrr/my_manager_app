@@ -9,4 +9,12 @@ class _HomePageText {
   final deleteSpentLabel = 'Borrar';
 }
 
-class _AddSpentFormText {}
+class _AddSpentFormText {
+  final requiredErrorText = 'Este valor es requido';
+  final priceErrorText = 'Este valor debe ser un precio';
+  final dateErrorText = 'Este valor debe ser una fecha';
+  final addButtonText = 'Agregar';
+  final priceLabelText = 'Precio';
+  final descriptionLabelText = 'Descripcion';
+  final dateLabelText = 'Fecha';
+}

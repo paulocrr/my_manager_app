@@ -2,17 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:intl/intl.dart';
 import 'package:my_manager_app/languages/my_text.dart';
+import 'package:my_manager_app/models/spent.dart';
 
 class SpentItem extends StatelessWidget {
-  final double amount;
-  final String description;
-  final DateTime date;
+  final Spent spent;
 
   const SpentItem({
     super.key,
-    required this.amount,
-    required this.description,
-    required this.date,
+    required this.spent,
   });
 
   @override
@@ -42,15 +39,15 @@ class SpentItem extends StatelessWidget {
               ),
             ),
             child: Text(
-              'S/ ${amount.toStringAsFixed(2)}',
+              'S/ ${spent.amount.toStringAsFixed(2)}',
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
               ),
             ),
           ),
-          title: Text(description),
-          subtitle: Text(DateFormat.yMMMEd('es').format(date)),
+          title: Text(spent.description),
+          subtitle: Text(DateFormat.yMMMEd('es').format(spent.date)),
         ),
       ),
     );

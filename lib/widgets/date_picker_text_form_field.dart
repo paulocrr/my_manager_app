@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:my_manager_app/languages/my_text.dart';
 
 class DatePickerTextFormField extends StatelessWidget {
   final TextEditingController? controller;
+  final String? Function(String?)? validator;
 
-  const DatePickerTextFormField({super.key, this.controller});
+  const DatePickerTextFormField({
+    super.key,
+    this.controller,
+    this.validator,
+  });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: validator,
       controller: controller,
       readOnly: true,
       decoration: InputDecoration(
-        label: Text('Fecha'),
+        label: Text(MyText.addSpentFormText.dateLabelText),
       ),
       onTap: () async {
         final pickDate = await showDatePicker(
