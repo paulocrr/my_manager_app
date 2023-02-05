@@ -1,5 +1,7 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:my_manager_app/extensions/list_spent_extensions.dart';
 import 'package:my_manager_app/languages/my_text.dart';
 import 'package:my_manager_app/models/spent.dart';
 import 'package:my_manager_app/widgets/add_spent_form.dart';
@@ -50,8 +52,23 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
-          const Expanded(
-            child: Placeholder(),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              child: BarChart(
+                BarChartData(
+                  borderData: FlBorderData(
+                    border: const Border(
+                      top: BorderSide.none,
+                      right: BorderSide.none,
+                      left: BorderSide(width: 4),
+                      bottom: BorderSide(width: 4),
+                    ),
+                  ),
+                  barGroups: expenses.getBars(),
+                ),
+              ),
+            ),
           ),
           Expanded(
             flex: 2,
