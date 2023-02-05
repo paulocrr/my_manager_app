@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_manager_app/languages/my_text.dart';
+import 'package:my_manager_app/widgets/add_spent_form.dart';
 import 'package:my_manager_app/widgets/spent_item.dart';
 
 class HomePage extends StatelessWidget {
@@ -14,6 +15,7 @@ class HomePage extends StatelessWidget {
             onPressed: () {
               showModalBottomSheet(
                   context: context,
+                  isScrollControlled: true,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(40),
@@ -21,35 +23,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   builder: (_) {
-                    return Form(
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Column(
-                          children: [
-                            TextFormField(
-                              decoration: InputDecoration(
-                                label: Text('Fecha'),
-                              ),
-                            ),
-                            TextFormField(
-                              decoration: InputDecoration(
-                                label: Text('Description'),
-                              ),
-                            ),
-                            TextFormField(
-                              decoration: InputDecoration(
-                                label: Text('Precio'),
-                              ),
-                            ),
-                            ElevatedButton.icon(
-                              onPressed: () {},
-                              icon: Icon(Icons.add),
-                              label: Text('Agregar'),
-                            )
-                          ],
-                        ),
-                      ),
-                    );
+                    return AddSpentForm();
                   });
             },
             icon: const Icon(Icons.add),
